@@ -15,6 +15,17 @@
     "type": "git",
     "url": "git+https://github.com/KhalidDudaev/nodejs.regee.git"
   },
+  "keywords": [
+    "regexp",
+    "regular",
+    "expression",
+    "named",
+    "group",
+    "npm",
+    "module",
+    "node",
+    "javascript"
+  ],
   "bugs": {
     "url": "https://github.com/KhalidDudaev/nodejs.regee/issues"
   },
