@@ -1,7 +1,8 @@
 {
   "name": "regee",
-  "version": "0.2.2",
-  "description": "REGEXP: Named groups in pattern",
+
+  "version": "0.3.4",
+  "description": "Regular expressions with named groups and backreferences with names",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +16,18 @@
     "type": "git",
     "url": "git+https://github.com/KhalidDudaev/nodejs.regee.git"
   },
+
+  "keywords": [
+    "regex",
+    "regexp",
+    "regular",
+    "expression",
+    "named",
+    "group",
+    "backreference",
+    "capture",
+    "capture"
+  ],
   "bugs": {
     "url": "https://github.com/KhalidDudaev/nodejs.regee/issues"
   },
