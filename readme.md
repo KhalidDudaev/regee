@@ -1,13 +1,10 @@
 
-# **RegEE** 
->Regular Expression Extends
-
-
-
+# RegEE [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
 
 ## Description
-This module allows the use of named groups in a regular expression.
+Regular Expression Extends
 
+RegEE JavaScript module. This module allows the use of named groups in a regular expression.
 
 ## Installing module
 
@@ -22,7 +19,6 @@ require('regee');
 //or
 import 'regee';
 ```
-
 
 ## Methods
 |method|meaning|
