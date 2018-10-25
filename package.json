@@ -1,7 +1,6 @@
 {
   "name": "regee",
-
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Regular expressions with named groups and backreferences with names",
   "main": "index.js",
   "scripts": {
@@ -9,14 +8,10 @@
   },
   "author": "Khalid Dudaev",
   "license": "MIT",
-  "dependencies": {
-    "user": "0.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KhalidDudaev/nodejs.regee.git"
   },
-
   "keywords": [
     "regex",
     "regexp",
