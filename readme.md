@@ -21,9 +21,9 @@ import 'regee';
 ```
 
 ## Methods
-|method|meaning|
-|-|-|
-| **ematch** | matching string |
+|#| name | meaning |
+|--|--|--|
+|1| **ematch** | matching string |
 
 
 ## Syntax
@@ -33,9 +33,9 @@ String.ematch( pattern[, flags] )
 
 ## Patterns
 
-| Character | Meaning |
-|--|--|
-|**(?\<somename\>\w+)**|Named group|
+|#| character | meaning |
+|--|--|--|
+|1|**(?\<somename\>\w+)**|Named group|
 
 **example:**
 ```javascript
@@ -44,9 +44,9 @@ let result      = str.ematch('My\\s+name\\s+is\\s+(?<FirstName>\\b\\w+\\b)');
 ```
 
 ## Back reference
-| Character | Meaning |
-|--|--|
-|**\k\<somename\>**|Back reference for named group|
+|#| character | meaning |
+|--|--|--|
+|1|**\k\<somename\>**|Back reference for named group|
 
 **example:**
 ```javascript
@@ -54,10 +54,10 @@ let str         = 'To be or not to be';
 let isHamlet    = str.ematch('(?<tb>To\\s+be)\\s+or\\s+not\\s+\\k<tb>', 'i');
 ```
 
-## Flag ***```x```***
-| Character | Meaning |
-|--|--|
-|**x**| ignore whitespace |
+## Flag ***x***
+|#| character | meaning |
+|--|--|--|
+|1|**x**| ignore whitespace |
 
 **example:**
 ```javascript
@@ -84,47 +84,38 @@ let result = str.ematch(`My\\s+name\\s+is
 	\\s+(?<Age>\\d+)\\s+year\\s+old`,
 'gx');
 
-console.log(result[0].name.FirstName);  // --> John
-console.log(result[0].pos[1]);          // --> John
-console.log(result[1].name.FirstName);  // --> Howard
+console.log(result[0].FirstName);  // --> John
+console.log(result[0][1]);         // --> John
+console.log(result[1].FirstName);  // --> Howard
 
 console.log(result); // see down...
 ```
 
-
->This action returns an array containing objects, the total elements of the array are equal to the number of matches. Object contines 3 keys: ***source***, ***name*** and ***pos***.
+This action returns arrays, the number of arrays is equal to the number of matches. The first element of each array contains a string that matches the pattern. 
 
 
 ## Return values
 **output:**
 ``` javascript
 [
-    {
-        source: 'My name is John Smith. I am 25 year old',
-        name: {
-            FirstName: 'John',
-            LastName: 'Smith',
-            Age: '25'
-        },
-        pos: ['My name is John Smith. I am 25 year old',
-            'John',
-            'Smith',
-            '25'
-        ]
-    },
-    {
-        source: 'My name is Howard. I am 32 year old',
-        name: {
-            FirstName: 'Howard',
-            LastName: undefined,
-            Age: '32'
-        },
-        pos: ['My name is Howard. I am 32 year old',
-            'Howard',
-            undefined,
-            '32'
-        ]
-    }
+    [
+        'My name is John Smith. I am 25 year old',
+        'John',
+        'Smith',
+        '25',
+        FirstName: 'John',
+        LastName: 'Smith',
+        Age: '25'
+    ],
+    [
+        'My name is Howard. I am 32 year old',
+        'Howard',
+        undefined,
+        '32',
+        FirstName: 'Howard',
+        LastName: undefined,
+        Age: '32'
+    ]
 ]
 ```
 
