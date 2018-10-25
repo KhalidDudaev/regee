@@ -1,11 +1,22 @@
 {
   "name": "regee",
-  "version": "0.2.0",
-  "description": "REGular Expression Extend",
+  "version": "0.2.2",
+  "description": "REGEXP: Named groups in pattern",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Khalid Dudaev",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "user": "0.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhalidDudaev/nodejs.regee.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KhalidDudaev/nodejs.regee/issues"
+  },
+  "homepage": "https://github.com/KhalidDudaev/nodejs.regee#readme"
 }
