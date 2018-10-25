@@ -73,8 +73,6 @@ let result      = str.ematch(`
 
 **example:**
 ``` javascript
-require('regee');
-
 let str = 'My name is John Smith. I am 25 year old. My name is Howard. I am 32 year old.';
 
 //You can using method 'ematch' for String objects
