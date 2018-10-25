@@ -50,8 +50,8 @@ let result      = str.ematch('My\\s+name\\s+is\\s+(?<FirstName>\\b\\w+\\b)');
 
 **example:**
 ```javascript
-let str         = 'To be or not to be';
-let isHamlet    = str.ematch('(?<tb>To\\s+be)\\s+or\\s+not\\s+\\k<tb>', 'i');
+let str         = 'to be or not to be';
+let isHamlet    = str.ematch('(?<tb>to\\s+be)\\s+or\\s+not\\s+\\k<tb>', 'i');
 ```
 
 ## Flag ***x***

@@ -9,7 +9,7 @@ class RegEE {
         this.rand           = Math.floor(Math.random()*10**7)
     }
     
-    match(source, pattern, flag){
+    ematch(source, pattern, flag){
 
         let arr             = []
         let captures        = []
@@ -31,15 +31,19 @@ class RegEE {
         
         matches.map((item, index) => {
             if(item == undefined ) return matches
-            arr                 = []
             captures            = item.match(new RegExp(newPattern))
-
-            captures.forEach( (element, index) => {
-                if(this.nameIndex[index] != undefined) arr[this.nameIndex[index]] = element
-                arr.push(element)
-            });
-
-            this.res.push(arr)
+            
+            if(captures !== null) {
+                captures.forEach( (element, index) => {
+                    if(this.nameIndex[index] != undefined) arr[this.nameIndex[index]] = element
+                    arr.push(element)
+                });
+                this.res.push(arr)
+            }
+            
+            if(arr !== null) {
+            }
+            arr                 = []
         })
         return this.res
     }
@@ -77,11 +81,11 @@ class RegEE {
 
 }
 
-function match(pattern, flag){
-    return new RegEE().match(this.toString(), pattern, flag)
+function ematch(pattern, flag){
+    return new RegEE().ematch(this.toString(), pattern, flag)
 }
 
-String.prototype.ematch = match
+String.prototype.ematch = ematch
 
 
 // export default match;
