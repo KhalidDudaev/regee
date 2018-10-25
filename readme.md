@@ -51,6 +51,7 @@ let result      = str.ematch('My\\s+name\\s+is\\s+(?<FirstName>\\b\\w+\\b)');
 | Character | Meaning |
 |--|--|
 |**\k\<somename\>**|Back reference for named group|
+
 **example:**
 ```javascript
 let str         = 'To be or not to be';
