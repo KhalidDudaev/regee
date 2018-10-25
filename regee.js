@@ -12,7 +12,6 @@ class RegEE {
     match(source, pattern, flag){
 
         let arr             = []
-        let obj             = {}
         let captures        = []
 
         if(flag !== undefined && flag.match(/x/)){
@@ -32,16 +31,15 @@ class RegEE {
         
         matches.map((item, index) => {
             if(item == undefined ) return matches
-            obj                 = {}
             arr                 = []
             captures            = item.match(new RegExp(newPattern))
 
             captures.forEach( (element, index) => {
-                if(this.nameIndex[index] != undefined) obj[this.nameIndex[index]] = element
+                if(this.nameIndex[index] != undefined) arr[this.nameIndex[index]] = element
                 arr.push(element)
             });
 
-            this.res.push({source: item, name: obj, pos: arr})
+            this.res.push(arr)
         })
         return this.res
     }
