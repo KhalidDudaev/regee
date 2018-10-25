@@ -1,7 +1,7 @@
 {
   "name": "regee",
-  "version": "0.3.3",
-  "description": "REGEXP: Named groups in pattern",
+  "version": "0.3.4",
+  "description": "Regular expressions with named groups and backreferences with names",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
