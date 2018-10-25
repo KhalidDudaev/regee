@@ -16,15 +16,15 @@
     "url": "git+https://github.com/KhalidDudaev/nodejs.regee.git"
   },
   "keywords": [
+    "regex",
     "regexp",
     "regular",
     "expression",
     "named",
     "group",
-    "npm",
-    "module",
-    "node",
-    "javascript"
+    "backreference",
+    "capture",
+    "capture"
   ],
   "bugs": {
     "url": "https://github.com/KhalidDudaev/nodejs.regee/issues"
