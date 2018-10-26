@@ -32,6 +32,7 @@ class RegEE {
         matches.map((item, index) => {
             if(item == undefined ) return matches
             captures            = item.match(new RegExp(newPattern))
+            arr                 = []
             
             if(captures !== null) {
                 captures.forEach( (element, index) => {
@@ -41,9 +42,6 @@ class RegEE {
                 this.res.push(arr)
             }
             
-            if(arr !== null) {
-            }
-            arr                 = []
         })
         return this.res
     }
@@ -86,6 +84,12 @@ function ematch(pattern, flag){
 }
 
 String.prototype.ematch = ematch
+
+function ematch2(string, flag){
+    return new RegEE().ematch(string, this, flag)
+}
+
+String.prototype[Symbol.match] = ematch2
 
 
 // export default match;
