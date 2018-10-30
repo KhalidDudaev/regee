@@ -1,11 +1,7 @@
 {
-  "name": "regee",
-  "version": "0.2.0",
-  "description": "REGular Expression Extend",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "ts-builder",
+  "version": "0.1.0",
+  "description": "TypeScript builder",
   "author": "Khalid Dudaev",
   "license": "MIT"
 }

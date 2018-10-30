@@ -1,0 +1,30 @@
+{
+  "name": "regee",
+  "version": "0.3.5",
+  "description": "Regular expressions with named groups and backreferences with names",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Khalid Dudaev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhalidDudaev/nodejs.regee.git"
+  },
+  "keywords": [
+    "regex",
+    "regexp",
+    "regular",
+    "expression",
+    "named",
+    "group",
+    "backreference",
+    "capture",
+    "capture"
+  ],
+  "bugs": {
+    "url": "https://github.com/KhalidDudaev/nodejs.regee/issues"
+  },
+  "homepage": "https://github.com/KhalidDudaev/nodejs.regee#readme"
+}
