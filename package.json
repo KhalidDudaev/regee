@@ -3,5 +3,24 @@
   "version": "regee@latest",
   "description": "Regular expressions with named groups and backreferences with names",
   "author": "Khalid Dudaev",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhalidDudaev/nodejs.regee.git"
+  },
+  "keywords": [
+    "regex",
+    "regexp",
+    "regular",
+    "expression",
+    "named",
+    "group",
+    "backreference",
+    "capture",
+    "capture"
+  ],
+  "bugs": {
+    "url": "https://github.com/KhalidDudaev/nodejs.regee/issues"
+  },
+  "homepage": "https://github.com/KhalidDudaev/nodejs.regee#readme"
 }
