@@ -1,7 +1,7 @@
 {
-  "name": "ts-builder",
-  "version": "0.1.0",
-  "description": "TypeScript builder",
+  "name": "regee",
+  "version": "regee@latest",
+  "description": "Regular expressions with named groups and backreferences with names",
   "author": "Khalid Dudaev",
   "license": "MIT"
 }
