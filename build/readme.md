@@ -1,10 +1,9 @@
 
-# RegEE [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
+# RegEE
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://opensource.org/licenses/MIT) [![GitHub](https://img.shields.io/github/release/KhalidDudaev/nodejs.regee.svg?style=flat-square)](https://github.com/KhalidDudaev/nodejs.regee/releases) [![Devid](https://david-dm.org/KhalidDudaev/nodejs.regee.svg?style=flat-square)](https://david-dm.org/KhalidDudaev/nodejs.regee?type=dev) [![David](https://img.shields.io/david/dev/KhalidDudaev/nodejs.regee.svg?style=flat-square)](https://david-dm.org/KhalidDudaev/nodejs.regee?type=dev)
 
 ## Description
-Regular Expression Extends
-
-RegEE JavaScript module. This module allows the use of named groups in a regular expression.
+>Regular Expression Extends. RegEE JavaScript module. This module allows the use of named groups in a regular expression.
 
 ## Installing module
 
@@ -123,5 +122,5 @@ This action returns arrays, the number of arrays is equal to the number of match
 #### Khalid Dudaev
 
 ## License 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+[MIT License](https://opensource.org/licenses/MIT)
 
