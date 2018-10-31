@@ -36,6 +36,8 @@
         this.source         = this.patternPrepare(pattern, this.flags)
     }
 
+    //################################## methods ###################################################
+
     public ematch (string :string, pattern :string, flag :string){
         console.log(string, pattern, flag);   
     }
@@ -43,10 +45,11 @@
     /**
      *
      *
-     * @private
+     * @param {string} string
+     * @returns {Array}
      * @memberof RegEE
      */
-    private __match(string :string) {
+    public [Symbol.match](string :string) {
 
         this.string         = string
         var arr :string[]
@@ -76,23 +79,12 @@
     /**
      *
      *
-     * @param {string} string
-     * @returns {Array}
-     * @memberof RegEE
-     */
-    public [Symbol.match]   = this.__match
-
-
-    /**
-     *
-     *
-     * @param {string} source
+     * @param {string} str
      * @param {(string | Function)} repl
+     * @returns {string}
      * @memberof RegEE
-     * 
      */
-
-    public [Symbol.replace] (str :string, repl: string | Function){
+    public [Symbol.replace] (str :string, repl :string | Function){
         this.string         = str
         var num             = 0
         var replacement :any
@@ -103,24 +95,14 @@
                 return '$' + num
             })
         } else {
-            this.res = this.__match(str)
+            this.res = this[Symbol.match](str)
             replacement = (str :string) => repl(str, this.res[num++])
         }
 
         return this.string.replace( new RegExp(this.source, this.flags), replacement)
     }
 
-
-    /**
-     *
-     *
-     * @private
-     * @param {string} pattern
-     * @param {string} flags
-     * @returns
-     * @memberof RegEE
-     * 
-     */
+    //################################## helpers ###################################################
 
     private patternPrepare(pattern :string, flags :string) {
         if(flags !== undefined && flags.match(/x/)){

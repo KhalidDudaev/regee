@@ -20,14 +20,6 @@ class RegEE {
         // private rand        :number
         this.string = '';
         this.group = {};
-        /**
-         *
-         *
-         * @param {string} string
-         * @returns {Array}
-         * @memberof RegEE
-         */
-        this[Symbol.match] = this.__match;
         if (pattern instanceof RegExp) {
             flags = flags || pattern.flags || '';
             pattern = pattern.source;
@@ -36,16 +28,18 @@ class RegEE {
         this.flags = flags || '';
         this.source = this.patternPrepare(pattern, this.flags);
     }
+    //################################## methods ###################################################
     ematch(string, pattern, flag) {
         console.log(string, pattern, flag);
     }
     /**
      *
      *
-     * @private
+     * @param {string} string
+     * @returns {Array}
      * @memberof RegEE
      */
-    __match(string) {
+    [Symbol.match](string) {
         this.string = string;
         var arr;
         var captures;
@@ -72,10 +66,10 @@ class RegEE {
     /**
      *
      *
-     * @param {string} source
+     * @param {string} str
      * @param {(string | Function)} repl
+     * @returns {string}
      * @memberof RegEE
-     *
      */
     [Symbol.replace](str, repl) {
         this.string = str;
@@ -89,21 +83,12 @@ class RegEE {
             });
         }
         else {
-            this.res = this.__match(str);
+            this.res = this[Symbol.match](str);
             replacement = (str) => repl(str, this.res[num++]);
         }
         return this.string.replace(new RegExp(this.source, this.flags), replacement);
     }
-    /**
-     *
-     *
-     * @private
-     * @param {string} pattern
-     * @param {string} flags
-     * @returns
-     * @memberof RegEE
-     *
-     */
+    //################################## helpers ###################################################
     patternPrepare(pattern, flags) {
         if (flags !== undefined && flags.match(/x/)) {
             this.flags = flags.replace(/x/, '');
