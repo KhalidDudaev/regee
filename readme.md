@@ -1,4 +1,4 @@
-<style>
+<div><style>
     .markdown-body pre {
         background-color: #101010;
         color: #e0e0e0;
@@ -9,7 +9,7 @@
     .hljs-string, .hljs-doctag {
         color: #ffc246;
     }
-</style>
+</style></div>
 
 # RegEE
 
