@@ -1,16 +1,3 @@
-<style>
-    .markdown-body pre {
-        background-color: #101010;
-        color: #e0e0e0;
-    }
-    .hljs-keyword {
-        color: #41d738;
-    }
-    .hljs-string, .hljs-doctag {
-        color: #ffc246;
-    }
-</style>
-
 # RegEE
 
 [![Current Version](https://img.shields.io/badge/version-v0.4.0-orange.svg?style=flat-square)](https://github.com/KhalidDudaev/v/nodejs.regee/releases)
