@@ -119,7 +119,7 @@ class RegEE {
         var num = 0;
         pattern = pattern
             .replace(/\(\?\<\w+\>/g, "(")
-            .replace(/\\k\<(\w+)\>/g, (m, gref) => {
+            .replace(/\\[kg]\<(\w+)\>/g, (m, gref) => {
             num = 0;
             if (this.group[gref] !== null)
                 num = this.group[gref];
