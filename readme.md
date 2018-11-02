@@ -8,7 +8,7 @@
 
 ## Description
 
->Regular Expression Extends. RegEE JavaScript module. This module allows the use of named groups in a regular expression.
+> Regular Expression Extends. RegEE JavaScript module. This module allows the use of named groups in a regular expression.
 
 ## Changes
 
