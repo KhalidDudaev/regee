@@ -159,22 +159,57 @@ var newString    = str.replace(new RegEE(`My\\s+name\\s+is
 
 // result ----------------------------------------------------------------------------
 console.log(newString); // --> John: 25
-
 ```
 
 ### ...as function
 
+The function takes two parameters. The first parameter is a matching string, and the second is an array of captured values. The function returns a string to replace the match string.
+
 |#| syntax | meaning |
 |--|--|--|
-|1| ***function***( **string**, **groups** ){/*...some code*/; ***return*** '...some replace string'; } |  |
-|2| ( **string**, **groups** ) => {/*...some code*/; ***return*** '...some replace string'; } |  |
+|1| ***function***( **string**, **groups** ) { ...some code; ***return*** '...some string'; } |return a string for replacement |
+|2| ( **string**, **groups** ) => { ...some code; ***return*** '...some string'; } |return a string for replacement |
+
+***example:***
+
+```javascript
+var oldString    = 'My name is John Smith. I am 25 year old.';
+
+// or --------------------------------------------------------------------------------
+var newString    = str.ereplace('My\\s+name\\s+is\\s+(?<FirstName>\\w+)\\s+(?<LastName>\\w+)\\.\\s+I\\s+am\\s+(?<Age>\\d+)\\s+year\\s+old', function (match, groups) {
+    console.log(match) // --> My name is John Smith. I am 25 year old
+    let res = groups.FirstName + ': ' + groups.Age
+    return res;
+});
+
+// or --------------------------------------------------------------------------------
+var newString    = str.replace(new RegEE(`My\\s+name\\s+is
+	\\s+(?<FirstName>\\w+)
+	\\s+(?<LastName>\\w+)\\.\\s+I\\s+am
+	\\s+(?<Age>\\d+)\\s+year\\s+old`,
+'x'), function (match, groups) {
+    console.log(match) // --> My name is John Smith. I am 25 year old
+    let res = groups.FirstName + ': ' + groups.Age
+    return res;
+});
+
+// or --------------------------------------------------------------------------------
+var newString    = str.replace(new RegEE(`My\\s+name\\s+is
+	\\s+(?<FirstName>\\w+)
+	\\s+(?<LastName>\\w+)\\.\\s+I\\s+am
+	\\s+(?<Age>\\d+)\\s+year\\s+old`,
+'x'), (match, groups) => groups.FirstName + ': ' + groups.Age);
+
+// result ----------------------------------------------------------------------------
+console.log(newString); // --> John: 25
+```
 
 ## Examples
 
 ***example:***
 
 ``` javascript
-var str = 'My name is John Smith. I am 25 year old. My name is Howard. I am 32 year old.';
+var str = 'My name is John Smith. I am 25 year old. My name is Jasmine. I am 32 year old.';
 
 //You can using method 'ematch' for String objects
 var result = str.ematch(`My\\s+name\\s+is
@@ -185,7 +220,7 @@ var result = str.ematch(`My\\s+name\\s+is
 
 console.log(result[0].FirstName);  // --> John
 console.log(result[0][1]);         // --> John
-console.log(result[1].FirstName);  // --> Howard
+console.log(result[1].FirstName);  // --> Jasmine
 
 console.log(result); // see down...
 /*
@@ -204,11 +239,11 @@ result is...
         Age: '25'
     ],
     [
-        'My name is Howard. I am 32 year old',
-        'Howard',
+        'My name is Jasmine. I am 32 year old',
+        'Jasmine',
         undefined,
         '32',
-        FirstName: 'Howard',
+        FirstName: 'Jasmine',
         LastName: undefined,
         Age: '32'
     ]
