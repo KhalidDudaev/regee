@@ -8,7 +8,7 @@
 
 ## Description
 
-> Regular Expression Extends. RegEE JavaScript module. This module allows the use of named groups in a regular expression.
+> Regular Expression with Extended functionality. RegEE JavaScript module. This module allows the use of named groups in a regular expression.
 
 ## Changes
 
@@ -76,13 +76,22 @@ str.replace(new RegEE(pattern[, flags]), replacer)
 
 ```javascript
 var str         = 'My name is John Smith. I am 25 year old';
+
+// or ------------------------------------------------------
 var result      = str.ematch(`
     My\\s+name\\s+is
     \\s+(?<FirstName>\\b\\w+\\b)
 `, 'x');
-```
 
-## Named group
+// or ------------------------------------------------------
+var result      = str.match(new RegEE(`
+    My\\s+name\\s+is
+    \\s+(?<FirstName>\\b\\w+\\b)
+`,'x'));
+```
+## Pattern
+
+### Named group
 
 |#| regexp | meaning |
 |--|--|--|
@@ -93,12 +102,16 @@ var result      = str.ematch(`
 ```javascript
 var str         = 'My name is John Smith. I am 25 year old';
 
+// or --------------------------------------------------------------------------------
 //                                                  name of group
 //                                                       |
 var result      = str.ematch('My\\s+name\\s+is\\s+(?<FirstName>\\b\\w+\\b)');
+
+// or --------------------------------------------------------------------------------
+var result      = str.match(new RegEE('My\\s+name\\s+is\\s+(?<FirstName>\\b\\w+\\b)'));
 ```
 
-## Named back reference
+### Named back reference
 
 |#| regexp | meaning |
 |--|--|--|
@@ -110,14 +123,55 @@ var result      = str.ematch('My\\s+name\\s+is\\s+(?<FirstName>\\b\\w+\\b)');
 ```javascript
 var str         = 'to be or not to be';
 
+// or --------------------------------------------------------------------------------
 //                           name of group <---------------- backreference
 //                                |                                |
 var isHamlet    = str.ematch('(?<TB>to\\s+be)\\s+or\\s+not\\s+\\k<TB>', 'i');
+
+// or --------------------------------------------------------------------------------
+var isHamlet    = str.match(new RegEE('(?<TB>to\\s+be)\\s+or\\s+not\\s+\\k<TB>', 'i');
 ```
+
+## Replacer
+
+### ...as string
+
+String to replace. The string can contain the result value taken from the capture group.
+
+|#| syntax | meaning |
+|--|--|--|
+|1|$+{ **groupName** }| captured value from the named group |
+
+***example:***
+
+```javascript
+var oldString    = 'My name is John Smith. I am 25 year old';
+
+// or --------------------------------------------------------------------------------
+var newString    = str.ereplace('My\\s+name\\s+is\\s+(?<FirstName>\\w+)\\s+(?<LastName>\\w+)\\.\\s+I\\s+am\\s+(?<Age>\\d+)\\s+year\\s+old', '$+{FirstName}: $+{Age}');
+
+// or --------------------------------------------------------------------------------
+var newString    = str.replace(new RegEE(`My\\s+name\\s+is
+	\\s+(?<FirstName>\\w+)
+	\\s+(?<LastName>\\w+)\\.\\s+I\\s+am
+	\\s+(?<Age>\\d+)\\s+year\\s+old`,
+'x'), '$+{FirstName}: $+{Age}');
+
+// result ----------------------------------------------------------------------------
+console.log(newString); // --> John: 25
+
+```
+
+### ...as function
+
+|#| syntax | meaning |
+|--|--|--|
+|1| ***function***( **string**, **groups** ){/*...some code*/; ***return*** '...some replace string'; } |  |
+|2| ( **string**, **groups** ) => {/*...some code*/; ***return*** '...some replace string'; } |  |
 
 ## Examples
 
-****example:****
+***example:***
 
 ``` javascript
 var str = 'My name is John Smith. I am 25 year old. My name is Howard. I am 32 year old.';
