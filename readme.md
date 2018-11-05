@@ -48,7 +48,7 @@ import { RegEE } from 'regee'
 ## Parameters
 
 |#| parameter | description |
-|--|--|--|--|
+|--|--|--|
 |1| **pattern**     | ***Required***. The string or regular expression as a string that will be replaced by the replacer. |
 |2| **replacer** | ***Required***. New substring or function. |
 |3| **flags** | ***Optional***. One of the javascript regexp flags and the added ***x*** flag. |
