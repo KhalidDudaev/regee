@@ -1,11 +1,10 @@
-
 /**
  *
  *
  * @export
  * @class RegEE
  */
- export class RegEE {
+export class RegEE {
     
     // private nameIndex   :any
     private res         :any    = []
