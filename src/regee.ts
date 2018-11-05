@@ -5,7 +5,6 @@
  * @export
  * @class RegEE
  */
-
  export class RegEE {
     
     // private nameIndex   :any
@@ -37,10 +36,6 @@
     }
 
     //################################## methods ###################################################
-
-    public ematch (string :string, pattern :string, flag :string){
-        console.log(string, pattern, flag);   
-    }
 
     /**
      *
@@ -149,5 +144,18 @@
         return pattern
     }
 
+
 }
+
+String.prototype.ematch = function (pattern :string, flags :string) {
+    let regee   = new RegEE(pattern, flags);
+    return regee[Symbol.match](this);
+}
+
+String.prototype.ereplace = function (pattern :string, replace :string, flags :string) {
+    let regee   = new RegEE(pattern, flags);
+    return regee[Symbol.replace](this, replace);
+}
+
+
 

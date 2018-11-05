@@ -1,5 +1,4 @@
 
-
 function ematch(pattern, flag){
     
     let arr             = [];
@@ -73,4 +72,4 @@ function backReference(pattern, nameIndex){
     return pattern;
 }
 
-String.prototype.ematch         = ematch;
+RegExp.prototype.ematch         = ematch;

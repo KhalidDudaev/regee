@@ -1,11 +1,11 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  *
  *
  * @export
  * @class RegEE
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 class RegEE {
     /**
      *Creates an instance of RegEE.
@@ -29,9 +29,6 @@ class RegEE {
         this.source = this.patternPrepare(pattern, this.flags);
     }
     //################################## methods ###################################################
-    ematch(string, pattern, flag) {
-        console.log(string, pattern, flag);
-    }
     /**
      *
      *
@@ -129,3 +126,11 @@ class RegEE {
     }
 }
 exports.RegEE = RegEE;
+String.prototype.ematch = function (pattern, flags) {
+    let regee = new RegEE(pattern, flags);
+    return regee[Symbol.match](this);
+};
+String.prototype.ereplace = function (pattern, replace, flags) {
+    let regee = new RegEE(pattern, flags);
+    return regee[Symbol.replace](this, replace);
+};
