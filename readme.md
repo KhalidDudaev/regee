@@ -278,4 +278,3 @@ console.log(newString); // see down...
 ## License
 
 [MIT License](https://opensource.org/licenses/MIT)  
-[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](http://opensource.org/licenses/MIT)
