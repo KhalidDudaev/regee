@@ -156,6 +156,3 @@ String.prototype.ereplace = function (pattern :string, replace :string, flags :s
     let regee   = new RegEE(pattern, flags);
     return regee[Symbol.replace](this, replace);
 }
-
-
-
