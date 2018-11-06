@@ -138,3 +138,4 @@ String.prototype.ereplace = function (pattern, replace, flags) {
     var regee = new RegEE(pattern, flags);
     return regee[Symbol.replace](this, replace);
 };
+//# sourceMappingURL=regee.js.map

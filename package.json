@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/KhalidDudaev/nodejs.regee/issues"
   },
-  "homepage": "https://github.com/KhalidDudaev/nodejs.regee#readme"
+  "homepage": "https://github.com/KhalidDudaev/nodejs.regee#readme",
+  "dependencies": {}
 }
