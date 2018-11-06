@@ -1,6 +1,6 @@
 {
   "name": "regee",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Regular expressions with named groups and backreferences with names",
   "main": "index.js",
   "scripts": {
