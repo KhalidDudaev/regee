@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @export
  * @class RegEE
  */
-class RegEE {
+var RegEE = /** @class */ (function () {
     /**
      *Creates an instance of RegEE.
      * @param {(string | RegExp)} pattern
      * @param {string} [flags]
      * @memberof RegEE
      */
-    constructor(pattern, flags) {
+    function RegEE(pattern, flags) {
         // this.rand           = Math.floor(Math.random() * 10**7)
         // private nameIndex   :any
         this.res = [];
@@ -36,30 +36,31 @@ class RegEE {
      * @returns {Array}
      * @memberof RegEE
      */
-    [Symbol.match](string) {
+    RegEE.prototype[Symbol.match] = function (string) {
+        var _this = this;
         this.string = string;
         var arr;
         var captures;
         var matches = string.match(new RegExp(this.source, this.flags));
         if (matches == null || matches == undefined)
             return matches;
-        matches.map((item, index) => {
+        matches.map(function (item, index) {
             if (item == undefined)
                 return matches;
-            captures = item.match(new RegExp(this.source));
+            captures = item.match(new RegExp(_this.source));
             arr = [];
             if (captures !== null) {
-                captures.forEach((element, index) => {
+                captures.forEach(function (element, index) {
                     // if(this.nameIndex[index] != undefined) arr[this.nameIndex[index]] = element
-                    if (this.group[index] != undefined)
-                        arr[this.group[index]] = element;
+                    if (_this.group[index] != undefined)
+                        arr[_this.group[index]] = element;
                     arr.push(element);
                 });
-                this.res.push(arr);
+                _this.res.push(arr);
             }
         });
         return this.res;
-    }
+    };
     /**
      *
      *
@@ -68,25 +69,26 @@ class RegEE {
      * @returns {string}
      * @memberof RegEE
      */
-    [Symbol.replace](str, repl) {
+    RegEE.prototype[Symbol.replace] = function (str, repl) {
+        var _this = this;
         this.string = str;
         var num = 0;
         var replacement;
         if (typeof repl == 'string') {
-            replacement = repl.replace(/\$\+?\{(\w+)\}/g, (str, match) => {
-                if (this.group[match] !== null)
-                    num = this.group[match];
+            replacement = repl.replace(/\$\+?\{(\w+)\}/g, function (str, match) {
+                if (_this.group[match] !== null)
+                    num = _this.group[match];
                 return '$' + num;
             });
         }
         else {
             this.res = this[Symbol.match](str);
-            replacement = (str) => repl(str, this.res[num++]);
+            replacement = function (str) { return repl(str, _this.res[num++]); };
         }
         return this.string.replace(new RegExp(this.source, this.flags), replacement);
-    }
+    };
     //################################## helpers ###################################################
-    patternPrepare(pattern, flags) {
+    RegEE.prototype.patternPrepare = function (pattern, flags) {
         if (flags !== undefined && flags.match(/x/)) {
             this.flags = flags.replace(/x/, '');
             pattern = pattern.replace(/\s+/g, '');
@@ -94,8 +96,8 @@ class RegEE {
         this.group = this.getIndexOfName(pattern);
         pattern = this.backReference(pattern);
         return pattern;
-    }
-    getIndexOfName(pattern) {
+    };
+    RegEE.prototype.getIndexOfName = function (pattern) {
         var rand = Math.floor(Math.random() * Math.pow(10, 7));
         var nameIndex = {};
         var names = pattern
@@ -103,7 +105,7 @@ class RegEE {
             .replace(new RegExp('\\{\\{' + rand + '\\}\\}\\(', 'g'), "")
             .match(/\((?:\?\<(\w+)\>|(?!\?[^\<]))/g);
         if (names)
-            names.map((item, index) => {
+            names.map(function (item, index) {
                 if (item.match(/\(\?\<(\w+)\>/)) {
                     item = item.replace(/\(\?\<(\w+)\>/, "$1");
                     nameIndex[item] = index + 1;
@@ -111,26 +113,28 @@ class RegEE {
                 }
             });
         return nameIndex;
-    }
-    backReference(pattern) {
+    };
+    RegEE.prototype.backReference = function (pattern) {
+        var _this = this;
         var num = 0;
         pattern = pattern
             .replace(/\(\?\<\w+\>/g, "(")
-            .replace(/\\[kg]\<(\w+)\>/g, (m, gref) => {
+            .replace(/\\[kg]\<(\w+)\>/g, function (m, gref) {
             num = 0;
-            if (this.group[gref] !== null)
-                num = this.group[gref];
+            if (_this.group[gref] !== null)
+                num = _this.group[gref];
             return '\\' + num;
         });
         return pattern;
-    }
-}
+    };
+    return RegEE;
+}());
 exports.RegEE = RegEE;
 String.prototype.ematch = function (pattern, flags) {
-    let regee = new RegEE(pattern, flags);
+    var regee = new RegEE(pattern, flags);
     return regee[Symbol.match](this);
 };
 String.prototype.ereplace = function (pattern, replace, flags) {
-    let regee = new RegEE(pattern, flags);
+    var regee = new RegEE(pattern, flags);
     return regee[Symbol.replace](this, replace);
 };
