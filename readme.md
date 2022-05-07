@@ -1,6 +1,6 @@
 # RegEE
 
-[![Current Version](https://img.shields.io/badge/version-v0.4.0-orange.svg?style=flat-square)](https://github.com/KhalidDudaev/v/nodejs.regee/releases) [![GitHub release](https://img.shields.io/github/release/KhalidDudaev/nodejs.regee.svg?style=flat-square&)](https://github.com/KhalidDudaev/nodejs.regee/releases) [![Depedency](https://img.shields.io/david/KhalidDudaev/nodejs.regee.svg?style=flat-square&)]() [![DevDepedency](https://img.shields.io/david/dev/KhalidDudaev/nodejs.regee.svg?style=flat-square&)]() [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square&)](http://opensource.org/licenses/MIT)
+[![Current Version](https://img.shields.io/badge/version-v0.4.0-orange.svg?style=flat-square)](https://github.com/KhalidDudaev/v/nodejs.regee/releases) [![GitHub release](https://img.shields.io/github/release/KhalidDudaev/nodejs.regee.svg?style=flat-square&)](https://github.com/KhalidDudaev/nodejs.regee/releases) [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square&)](http://opensource.org/licenses/MIT)
 
 ## Description
 
